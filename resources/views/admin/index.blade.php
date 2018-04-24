@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 @section('content')
     <h1 class="page-header">
-        Blank Page
-        <small>Subheading</small>
+        All Users
+
     </h1>
     <div class="col-lg-12">
 
@@ -19,6 +19,7 @@
         <thead class="thead-dark">
         <tr>
             <th scope="col">ID</th>
+            <th scope="col">Photo</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
             <th scope="col">Email</th>
@@ -34,13 +35,16 @@
                     {{$user->id}}
                 </td>
                 <td>
+                    <img src='{{$user->photo->file}}' height="50px">
+                </td>
+                <td>
                     {{$user->name}}
                 </td>
                 <td>
                     {{$user->lastName}}
                 </td>
                 <td>
-                    {{$user->email}}
+                    <a href={{route('admin.edit',$user->id)}}>{{$user->email}}</a>
                 </td>
                 <td>
                     {{$user->job->job_id}}

@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('job_id','Job Description:') !!}
-                {!! Form::select('job',[''=>'Choose Option'] + $roles, null,['class'=>'form-control']) !!}
+                {!! Form::select('job_id',[''=>'Choose Option'] + $roles, null,['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('dept_id','Department:') !!}
