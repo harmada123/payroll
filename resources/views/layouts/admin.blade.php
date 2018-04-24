@@ -168,24 +168,12 @@
             </li>
 
             <li>
-                <a href={{route('jobs.index')}}><i class="fa fa-fw fa-table"></i> Jobs</a>
+                <a href={{route('jobs.index')}}><i class="fa fa-fw fa-money"></i> Jobs</a>
             </li>
             <li>
-                <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-            </li>
-            <li>
-                <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-            </li>
-            <li>
-                <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+                <a href={{route('department.index')}}><i class="fa fa-fw fa-users"></i> Department</a>
             </li>
 
-            <li class="active">
-                <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-            </li>
-            <li>
-                <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-            </li>
         </ul>
     </div>
     <!-- /.navbar-collapse -->
