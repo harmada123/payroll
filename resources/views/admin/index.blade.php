@@ -15,7 +15,20 @@
             </li>
         </ol>
     </div>
-    <table class="table">
+    <form method="GET" action="{{ url('my-search') }}">
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" name="search" class="form-control pull-right" placeholder="Search" value="{{ old('search') }}">
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-success">Search</button>
+            </div>
+        </div>
+    </form>
+
+   <br>
+    <hr>
+    <table class="table table-condensed">
         <thead class="thead-dark">
         <tr>
             <th scope="col">ID</th>
@@ -57,5 +70,10 @@
                 </td>
             </tr>
             </tbody>
+    </table>
+    <hr>
+    <div class="col-lg-12">
+
+    </div>
     @endforeach
 @endsection

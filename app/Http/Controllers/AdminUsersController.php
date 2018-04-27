@@ -6,6 +6,9 @@ use App\Job;
 use App\Photo;
 use App\User;
 use Illuminate\Http\Request;
+use Auth;
+
+
 
 class AdminUsersController extends Controller
 {
@@ -16,9 +19,20 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
+
         $users = User::all();
+
+
         return view('admin.index',compact('users'));
     }
+    /**
+     * Search users
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +40,10 @@ class AdminUsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {
+
+
         $roles = Job::pluck('job_id','id')->all();
         $depts = Department::pluck('department_id','id')->all();
 
@@ -67,9 +84,10 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($search)
     {
-        //
+//        $users = DB::table('users')->where('email', 'like', '%' .  $search . '%')->get();
+//        return view('admin.search',compact('users'));
     }
 
     /**
@@ -80,6 +98,7 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
+
         $users = User::findOrFail($id);
         $roles = Job::pluck('job_id','id')->all();
         $depts = Department::pluck('department_id','id')->all();
@@ -125,4 +144,6 @@ class AdminUsersController extends Controller
         User::findOrFail($id)->delete();
         return redirect('admin/');
     }
+
+
 }
