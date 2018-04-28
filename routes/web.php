@@ -19,9 +19,13 @@ Route::get('/', function () {
 Auth::routes();
 
 
+Route::group(['middleware'=>'admin'],function (){
+    Route::resource('admin','AdminUsersController');
+    Route::resource('jobs','AdminJobsController');
+    Route::resource('department','AdminDepartmentsController');
+    Route::resource('users','UsersController');
+    Route::get("my-search","SearchQuery@mySearch");
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('admin','AdminUsersController');
-Route::resource('jobs','AdminJobsController');
-Route::resource('department','AdminDepartmentsController');
-Route::resource('users','UsersController');
-Route::get("my-search","SearchQuery@mySearch");
+
