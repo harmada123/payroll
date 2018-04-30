@@ -36,6 +36,10 @@
                 {!! Form::password('password',['class'=> 'form-control' ]) !!}
             </div>
             <div class="form-group">
+                {!! Form::label('access_id','Access Level:') !!}
+                {!! Form::select('access_id',[''=>'Choose Option'] + $level , null,['class'=>'form-control']) !!}
+            </div>
+            <div class="form-group">
                 {!! Form::label('job_id','Job Description:') !!}
                 {!! Form::select('job_id',[''=>'Choose Option'] + $roles, null,['class'=>'form-control']) !!}
             </div>
