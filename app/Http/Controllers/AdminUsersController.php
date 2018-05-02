@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Access;
 use App\Department;
 use App\Job;
 use App\Photo;
@@ -43,11 +44,11 @@ class AdminUsersController extends Controller
 
     {
 
-
+        $level = Access::pluck('role_name','id')->all();
         $roles = Job::pluck('job_id','id')->all();
         $depts = Department::pluck('department_id','id')->all();
 
-        return view('admin.create',compact('roles','depts'));
+        return view('admin.create')->with(compact('level','roles','depts'));
     }
 
     /**
@@ -102,7 +103,8 @@ class AdminUsersController extends Controller
         $users = User::findOrFail($id);
         $roles = Job::pluck('job_id','id')->all();
         $depts = Department::pluck('department_id','id')->all();
-        return view('admin.edit', compact('users','roles','depts'));
+        $level = Access::pluck('role_name','id')->all();
+        return view('admin.edit')->with(compact('users','roles','level','depts'));
     }
 
     /**

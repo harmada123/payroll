@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','photo_id','job_id','dept_id','salary','lastName'
+        'name', 'email', 'password','access_id','photo_id','job_id','dept_id','salary','lastName'
     ];
 //    public function searchableAs()
 //    {
@@ -43,6 +43,35 @@ class User extends Authenticatable
     public function photo(){
         return $this->belongsTo('App\Photo');
     }
+    public function access(){
+        return $this->belongsTo('App\Access');
+    }
+    public function deduction(){
+        return $this->hasMany('App\Deduction');
+    }
+    public function benefit(){
+        return $this->hasMany('App\Benefits');
+    }
+    public function attendance(){
+        return $this->hasMany('App\Attendance');
+    }
+
+    public function isAdmin(){
+
+        if($this->access->role_name == 'Administrator'){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    public function isOfficer(){
+        if($this->access->role_name == 'Payroll Officer'){
+            return true;
+        }
+        return false;
+    }
+
     protected $searchable = [
         'columns' => [
             'users.name' => 10,

@@ -15,17 +15,16 @@
             </li>
         </ol>
     </div>
-    <form method="GET" action="{{ url('my-search') }}">
+    {!! Form::open(['method'=>'GET','action'=>'SearchQuery@mySearch']) !!}
         <div class="row">
             <div class="col-md-6">
-                <input type="text" name="search" class="form-control pull-right" placeholder="Search" value="{{ old('search') }}">
+                {!! Form::text('search',null,['class'=>'form-control pull-right','placeholder'=>'Search','value'=>'search']) !!}
             </div>
             <div class="col-md-6">
-                <button class="btn btn-success">Search</button>
+                {!! Form::submit('Search',['class'=>'btn btn-success']) !!}
             </div>
         </div>
-    </form>
-
+    {!! Form::close() !!}
    <br>
     <hr>
     <table class="table table-condensed">
@@ -70,10 +69,12 @@
                 </td>
             </tr>
             </tbody>
+        @endforeach
     </table>
     <hr>
     <div class="col-lg-12">
 
     </div>
-    @endforeach
+
+
 @endsection

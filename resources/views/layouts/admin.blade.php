@@ -144,11 +144,17 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    <a href="{{route('logout')}}"
+                       onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}<i class="fa fa-fw fa-power-off"></i></a>
                 </li>
             </ul>
         </li>
     </ul>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
@@ -166,7 +172,6 @@
                     </li>
                 </ul>
             </li>
-
             <li>
                 <a href={{route('jobs.index')}}><i class="fa fa-fw fa-money"></i> Jobs</a>
             </li>

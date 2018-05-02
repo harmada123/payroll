@@ -26,6 +26,11 @@ Route::group(['middleware'=>'admin'],function (){
     Route::resource('users','UsersController');
     Route::get("my-search","SearchQuery@mySearch");
 });
+Route::group(['middleware'=>'payroll'],function () {
+    Route::resource('payroll', 'PayrollController');
+    Route::get("search","PayrollSearch@mySearch");
+    Route::resource('deduction','DeductionController');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
